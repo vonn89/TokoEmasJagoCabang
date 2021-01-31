@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SetorUangKas" language="groovy" pageWidth="209" pageHeight="842" columnWidth="169" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="f9f3ee2f-c03f-44a5-b80b-71661b7a2040">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="noSetor" class="java.lang.String">
+		<fieldDescription><![CDATA[noSetor]]></fieldDescription>
+	</field>
+	<field name="tglSetor" class="java.lang.String">
+		<fieldDescription><![CDATA[tglSetor]]></fieldDescription>
+	</field>
+	<field name="jumlahRp" class="java.lang.Double">
+		<fieldDescription><![CDATA[jumlahRp]]></fieldDescription>
+	</field>
+	<field name="kodeUser" class="java.lang.String">
+		<fieldDescription><![CDATA[kodeUser]]></fieldDescription>
+	</field>
+	<field name="kodeCabang" class="java.lang.String">
+		<fieldDescription><![CDATA[kodeCabang]]></fieldDescription>
+	</field>
+	<field name="tipeKasir" class="java.lang.String">
+		<fieldDescription><![CDATA[tipeKasir]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="33" width="169" height="16" uuid="05705879-0f1e-4f22-ad60-ff5f8c9582b3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Setor Uang Kas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="0" width="169" height="34" uuid="82a454c0-8c10-4601-9038-51b8d5de0de3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="18" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kodeCabang}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="33" width="169" height="1" uuid="28040da9-441f-4995-9468-5beebd5d3496"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="75" splitType="Stretch">
+			<textField pattern="dd MMM yyyy HH:mm">
+				<reportElement x="71" y="15" width="98" height="15" uuid="3ecf1113-4b29-4b7d-9eee-db3bbd68e5a3"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse($F{tglSetor})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="169" height="15" uuid="ba21b297-f629-4aec-b470-4fdf4ab3a01c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noSetor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="45" width="61" height="15" uuid="378bd24c-22fc-47c7-8852-da65dc6bd866"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Jumlah Setor]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="71" y="45" width="98" height="15" uuid="8f4d8458-5f0c-4ff5-9072-2ad866c075b6"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlahRp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="60" width="61" height="15" uuid="a6b4b604-d2b6-4482-b641-7dd0fcc57dee"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Kode User]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="71" y="60" width="98" height="15" uuid="cef1ee27-c8ef-44ab-950f-973de76f9f21"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kodeUser}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="15" width="61" height="15" uuid="efde805c-49f9-4355-9c7c-039c70d7f884"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="15" width="10" height="15" uuid="e576295a-b2e6-4019-a524-1319b76c5ad9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="45" width="10" height="15" uuid="425c66fa-2477-438a-a340-8afd1e2d49a3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="60" width="10" height="15" uuid="35e04572-a044-495e-bab6-e3a077a7b453"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="71" y="30" width="98" height="15" uuid="48d5867a-7045-4e89-9321-ebfa90434b19"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipeKasir}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="61" height="15" uuid="33f91dfb-5e82-4e89-9078-50dc1589076b"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Tipe Kasir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="30" width="10" height="15" uuid="347b7e36-d6c7-4b41-a65e-b53d9258ba4a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

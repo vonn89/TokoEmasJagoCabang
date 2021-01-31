@@ -1,0 +1,33 @@
+{
+     "pageFormat": {
+         "characterPitch": "12",
+         "pageLength": 15,
+         "pageWidth": 150,
+         "usePageLengthFromPrinter": false
+     },
+     "template": {
+         "header": [ "                                    ${nomorFaktur}                    ${tanggal}    ",
+                     "                                                                          ${nama}  ",
+                     "                                                                          ${alamat}",
+                     "                                                                          ${notelp}",
+                     "                                     ${sales}       ${jam}            ",
+                     "  "
+         ],
+         "detail": [
+             {
+                "table": "listItemFaktur",
+                "border": false,
+                "columns": [
+                    { "caption": "", "source": "", "width": 13},
+                    { "caption": "", "source": "barang", "width": 44},
+                    { "caption": "", "source": "berat", "width": 6 },
+                    { "caption": "", "source": "kadar", "width": 6 },
+                    { "caption": "", "source": "kode", "width": 6 },
+                    { "caption": "", "source": "harga::right", "width": 15 }
+                ]
+             }
+         ],
+         "footer": [ "    Terbilang : ${terbilang:62}   ${total::right}   "
+         ] 
+     }
+ }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="dialog" stylesheets="@../../Resource/MyTheme.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excellentsystem.TokoEmasJagoCabang.View.Dialog.DetailKeuanganPemesananController">
+   <children>
+      <GridPane hgap="5.0" layoutX="109.0" layoutY="31.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.rowIndex="4">
+               <children>
+                  <Label layoutX="866.0" layoutY="15.0" text="Total Pemesanan" />
+                  <Label fx:id="totalPemesananLabel" layoutX="971.0" layoutY="15.0" style="-fx-font-weight: bold;" text="0" />
+                  <Label layoutX="878.0" layoutY="15.0" text="Total Titip Uang" />
+                  <Label fx:id="totalTitipUangLabel" layoutX="971.0" layoutY="15.0" style="-fx-font-weight: bold;" text="0" />
+               </children>
+            </HBox>
+            <TableView fx:id="pemesananTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+              <columns>
+                <TableColumn fx:id="noPemesananColumn" prefWidth="75.0" text="No Pemesanan" />
+                <TableColumn fx:id="tglPemesananColumn" prefWidth="75.0" text="Tgl Terima" />
+                  <TableColumn fx:id="tglAmbilColumn" prefWidth="75.0" text="Tgl Ambil" />
+                  <TableColumn fx:id="tglBatalColumn" prefWidth="75.0" text="Tgl Batal" />
+                  <TableColumn fx:id="salesTerimaColumn" prefWidth="75.0" text="Sales Terima" />
+                  <TableColumn fx:id="salesAmbilColumn" prefWidth="75.0" text="Sales Ambil" />
+                  <TableColumn fx:id="salesBatalColumn" prefWidth="75.0" text="Sales Batal" />
+                  <TableColumn fx:id="namaColumn" prefWidth="75.0" text="Nama" />
+                  <TableColumn fx:id="alamatColumn" prefWidth="75.0" text="Alamat" />
+                  <TableColumn fx:id="keteranganColumn" prefWidth="75.0" text="Keterangan" />
+                  <TableColumn fx:id="totalPemesananColumn" prefWidth="75.0" text="Total Pemesanan" />
+                  <TableColumn fx:id="titipUangColumn" prefWidth="75.0" text="Titip Uang" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <Label fx:id="title" styleClass="label-header" text="Terima Pemesanan" />
+            <Button mnemonicParsing="false" onAction="#close" GridPane.halignment="RIGHT">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Resource/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="searchField" prefHeight="30.0" promptText="Search..." styleClass="search-field" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

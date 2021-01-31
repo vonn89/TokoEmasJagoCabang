@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="dialog" stylesheets="@../../Resource/MyTheme.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="com.excellentsystem.TokoEmasJagoCabang.View.Dialog.KartuStokBarangController">
+   <children>
+      <GridPane hgap="5.0" layoutX="-21.0" layoutY="110.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+         <children>
+            <Label styleClass="label-header" text="Kartu Stok Barang" />
+            <Button mnemonicParsing="false" onAction="#close" GridPane.halignment="RIGHT">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Resource/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TableView fx:id="stokBarangTable" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" GridPane.rowIndex="2">
+              <columns>
+                <TableColumn fx:id="tanggalColumn" prefWidth="75.0" text="Tanggal" />
+                <TableColumn fx:id="stokAwalColumn" prefWidth="75.0" text="Stok Awal" />
+                  <TableColumn fx:id="beratAwalColumn" prefWidth="75.0" text="Berat Awal" />
+                  <TableColumn fx:id="stokMasukColumn" prefWidth="75.0" text="Stok Masuk" />
+                  <TableColumn fx:id="beratMasukColumn" prefWidth="75.0" text="Berat Masuk" />
+                  <TableColumn fx:id="stokKeluarColumn" prefWidth="75.0" text="Stok Keluar" />
+                  <TableColumn fx:id="beratKeluarColumn" prefWidth="75.0" text="Berat Keluar" />
+                  <TableColumn fx:id="stokAkhirColumn" prefWidth="75.0" text="Stok Akhir" />
+                  <TableColumn fx:id="beratAkhirColumn" prefWidth="75.0" text="Berat Akhir" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.rowIndex="1">
+               <children>
+                  <Label fx:id="kodeBarangLabel" text="Kode Barang" />
+                  <Label fx:id="kodeBarangValueLabel" style="-fx-font-weight: bold;" text="MT" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Tanggal" />
+                        <DatePicker fx:id="tglAwalPicker" onAction="#getBarang" prefHeight="30.0" prefWidth="150.0" />
+                        <Label text="-" />
+                        <DatePicker fx:id="tglAkhirPicker" onAction="#getBarang" prefHeight="30.0" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

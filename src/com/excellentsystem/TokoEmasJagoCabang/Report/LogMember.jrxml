@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanKeuanganHarianSummary" pageWidth="209" pageHeight="1441" columnWidth="169" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="4dc9bdcd-a3aa-403b-b725-a0f7c62ae304">
+	<property name="ireport.zoom" value="2.657341500000003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<parameter name="poinAwal" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="kodeCabang" class="java.lang.String">
+		<fieldDescription><![CDATA[kodeCabang]]></fieldDescription>
+	</field>
+	<field name="kategori" class="java.lang.String">
+		<fieldDescription><![CDATA[kategori]]></fieldDescription>
+	</field>
+	<field name="tanggal" class="java.lang.String">
+		<fieldDescription><![CDATA[tanggal]]></fieldDescription>
+	</field>
+	<field name="jumlahPoin" class="java.lang.Integer">
+		<fieldDescription><![CDATA[jumlahPoin]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[member.alamat]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[member.nama]]></fieldDescription>
+	</field>
+	<field name="kelurahan" class="java.lang.String">
+		<fieldDescription><![CDATA[member.kelurahan]]></fieldDescription>
+	</field>
+	<field name="noTelp" class="java.lang.String">
+		<fieldDescription><![CDATA[member.noTelp]]></fieldDescription>
+	</field>
+	<variable name="poinAkhir" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{jumlahPoin}]]></variableExpression>
+	</variable>
+	<title>
+		<band height="75" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="169" height="18" uuid="d8dd206d-f1ac-4728-b902-c7b37c61c70f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="14" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[History Member]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="18" width="50" height="15" uuid="404bcaa3-d0e4-4bda-8657-d9aa85776543"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="32" width="50" height="15" uuid="44a7e3d9-7ffc-4ecb-baea-e7ec706766b6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="50" height="15" uuid="682efddd-fc6c-43e3-9873-a3f7c2080d88"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[No Telp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="18" width="5" height="15" uuid="bb34fa42-5de3-46b8-b392-c81536405f15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="32" width="5" height="15" uuid="cc0b9328-b49a-467d-9d17-f7d3507cc185"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="60" width="5" height="15" uuid="391f4948-ef6c-4a2e-8884-fd0376204560"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="53" y="18" width="116" height="15" uuid="26ba0bd2-74c3-401a-948b-908da9a24ed8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="32" width="116" height="15" uuid="c6e96363-de33-40ed-9d4f-a2144f9920c9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="46" width="116" height="15" uuid="db2d7a71-0923-4e60-8a97-656ebf4392da"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kelurahan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="60" width="116" height="15" uuid="66f7f503-b46a-4f2c-8be4-1bc6576fdbae"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noTelp}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="74" width="169" height="1" uuid="7a8689ac-d8ec-4cbd-afbe-a5a953b2328c"/>
+			</line>
+			<line>
+				<reportElement x="0" y="17" width="169" height="1" uuid="daf369a0-e209-4a33-9909-f05d349b4f47"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="15">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="15" uuid="30b997a0-3945-48dd-a73e-b304cf454ef1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Saldo Poin Awal]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="99" y="0" width="70" height="15" uuid="513aa870-4c3a-499b-94ba-f82501ee53ec"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{poinAwal}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="14" width="169" height="1" uuid="b22c5fa3-ef94-46a3-b6b7-90ce2b774c44"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="169" height="15" uuid="6a90cf53-d580-4b5c-ab02-0bdc9780ed7a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kodeCabang}+"-"+$F{kategori}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;(-#,##0)">
+				<reportElement x="99" y="14" width="70" height="15" uuid="495c48be-1cc1-4381-93c2-39a5f521cf91"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlahPoin}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMM yyyy HH:mm">
+				<reportElement x="0" y="14" width="100" height="15" uuid="44d8c84f-d213-40fd-b341-d1e2c071e298"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse($F{tanggal})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="15">
+			<textField pattern="#,##0">
+				<reportElement x="99" y="0" width="70" height="15" uuid="e726198c-89cf-47ce-ae3c-2d0ef1c8b7eb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{poinAkhir}+$P{poinAwal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="15" uuid="d382d520-6187-476c-b5d5-14955e575de6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saldo Poin Akhir]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="169" height="1" uuid="337b167d-5ae7-4058-b9a2-a2e40e8ed60e"/>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>

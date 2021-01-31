@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanKeuanganHarianSummary" pageWidth="209" pageHeight="1441" columnWidth="169" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="4dc9bdcd-a3aa-403b-b725-a0f7c62ae304">
+	<property name="ireport.zoom" value="3.536921536500002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1">
+		<box leftPadding="3" rightPadding="3">
+			<topPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<parameter name="tanggal" class="java.lang.String"/>
+	<parameter name="kodeCabang" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["KRA"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nilaiPoin" class="java.lang.Double" isForPrompting="false">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subReport" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="subReportDataSource" class="net.sf.jasperreports.engine.JRDataSource" isForPrompting="false"/>
+	<parameter name="saldoAwalKasir" class="java.lang.Double" isForPrompting="false"/>
+	<parameter name="saldoAwalRR" class="java.lang.Double" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="jumlahRp" class="java.lang.Double">
+		<fieldDescription><![CDATA[jumlahRp]]></fieldDescription>
+	</field>
+	<field name="tipeKasir" class="java.lang.String">
+		<fieldDescription><![CDATA[tipeKasir]]></fieldDescription>
+	</field>
+	<field name="kategori" class="java.lang.String">
+		<fieldDescription><![CDATA[kategori]]></fieldDescription>
+	</field>
+	<variable name="saldoAkhir" class="java.lang.Double" resetType="Group" resetGroup="tipe_kasir" calculation="Sum">
+		<variableExpression><![CDATA[$F{jumlahRp}]]></variableExpression>
+	</variable>
+	<variable name="totalKategori" class="java.lang.Double" resetType="Group" resetGroup="kategori" calculation="Sum">
+		<variableExpression><![CDATA[$F{jumlahRp}]]></variableExpression>
+	</variable>
+	<group name="tipe_kasir">
+		<groupExpression><![CDATA[$F{tipeKasir}.toUpperCase()]]></groupExpression>
+		<groupHeader>
+			<band height="34">
+				<textField>
+					<reportElement x="0" y="4" width="169" height="16" uuid="8337233d-b50f-44a1-943b-c095d1d5e483"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="12" isBold="false" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipeKasir}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="0" width="169" height="1" uuid="51a20155-db2f-4492-8186-d17370e2fc6b"/>
+					<graphicElement>
+						<pen lineWidth="3.0" lineStyle="Double"/>
+					</graphicElement>
+				</line>
+				<textField pattern="#,##0;(#,##0)">
+					<reportElement x="109" y="19" width="60" height="15" uuid="6dd5b222-7ea3-4a18-8b17-d97be086a743">
+						<printWhenExpression><![CDATA[$F{tipeKasir}.toUpperCase().equals("KASIR")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{saldoAwalKasir}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0;(#,##0)">
+					<reportElement x="109" y="19" width="60" height="15" uuid="075e92ca-5520-41ff-9399-e10b1e590de1">
+						<printWhenExpression><![CDATA[$F{tipeKasir}.toUpperCase().equals("RR")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{saldoAwalRR}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="19" width="109" height="15" uuid="5a9995f9-19f4-4067-98d3-77b784016040"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Saldo Awal]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="28">
+				<textField pattern="#,##0;(#,##0)">
+					<reportElement x="109" y="0" width="60" height="15" uuid="570557a1-0ef0-4e0d-aa6d-b7dbedeb4fb6"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Serif" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{tipeKasir}.toUpperCase().equals("KASIR") ? 
+$P{saldoAwalKasir} : $P{saldoAwalRR})+
+$V{saldoAkhir}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="109" height="15" uuid="f9118aaf-a12b-4631-8a44-f64cbe548927"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Saldo Akhir]]></text>
+				</staticText>
+				<line>
+					<reportElement x="109" y="-1" width="60" height="1" uuid="d7f615c4-7af2-4ba6-9acc-b67474a95583"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="kategori">
+		<groupExpression><![CDATA[$F{kategori}.toUpperCase()]]></groupExpression>
+		<groupFooter>
+			<band height="15">
+				<textField isStretchWithOverflow="true">
+					<reportElement x="0" y="0" width="109" height="15" uuid="47ab9f47-1a4e-43e1-a479-25df3ac26384"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{kategori}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0;(#,##0)">
+					<reportElement stretchType="RelativeToBandHeight" x="109" y="0" width="60" height="15" uuid="68687986-7b44-4db0-b3f3-b6ec10fbc5a7"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Serif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalKategori}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="169" height="34" uuid="d8dd206d-f1ac-4728-b902-c7b37c61c70f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="14" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Laporan Keuangan Harian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="169" height="25" uuid="62dce521-58a9-4965-b722-a6c0c54c95f2"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Serif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Toko Emas Jago]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="65" y="30" width="104" height="20" uuid="63302894-2822-4bcb-9688-7221c6cfc398"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="30" width="100" height="20" uuid="9947fcd5-4742-45dd-8990-3b70c0cf776e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kodeCabang}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<summary>
+		<band height="10">
+			<subreport>
+				<reportElement x="-20" y="0" width="209" height="10" uuid="88ae4d07-ca7a-4e65-a510-63f778e08c75"/>
+				<subreportParameter name="kodeToko">
+					<subreportParameterExpression><![CDATA[$P{kodeCabang}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nilaiPoin">
+					<subreportParameterExpression><![CDATA[$P{nilaiPoin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tanggal">
+					<subreportParameterExpression><![CDATA[$P{tanggal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{subReportDataSource}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReport}]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

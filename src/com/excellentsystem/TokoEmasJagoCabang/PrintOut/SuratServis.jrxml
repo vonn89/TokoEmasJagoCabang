@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SuratServis" language="groovy" pageWidth="209" pageHeight="842" columnWidth="169" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="a3116e02-f7d1-4bb7-864a-175320cf8c01">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="kodeSales" class="java.lang.String">
+		<fieldDescription><![CDATA[kodeSales]]></fieldDescription>
+	</field>
+	<field name="berat" class="java.lang.Double">
+		<fieldDescription><![CDATA[berat]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[nama]]></fieldDescription>
+	</field>
+	<field name="noServis" class="java.lang.String">
+		<fieldDescription><![CDATA[noServis]]></fieldDescription>
+	</field>
+	<field name="tglServis" class="java.lang.String">
+		<fieldDescription><![CDATA[tglServis]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[alamat]]></fieldDescription>
+	</field>
+	<field name="kategoriServis" class="java.lang.String">
+		<fieldDescription><![CDATA[kategoriServis]]></fieldDescription>
+	</field>
+	<field name="namaBarang" class="java.lang.String">
+		<fieldDescription><![CDATA[namaBarang]]></fieldDescription>
+	</field>
+	<field name="tglAmbil" class="java.lang.String">
+		<fieldDescription><![CDATA[tglAmbil]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="169" height="21" uuid="188155de-49c1-4adc-a6af-a803d937ff6b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="16" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Surat Servis]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="169" height="1" uuid="7b5ac8cf-1169-4e64-8be6-941334b615d8"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="158" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="169" height="20" uuid="50dc6fb3-3f1a-4f09-8b45-66e8938a54ae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noServis}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMM yyyy HH:mm">
+				<reportElement x="69" y="20" width="100" height="15" uuid="4b23087a-1b13-47f3-8a4e-8669da963b82"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse($F{tglServis})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="35" width="100" height="15" uuid="9d0b8f82-25b7-42d5-9cc8-d5a697799c2f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="50" width="100" height="15" uuid="0749d5ba-3a4c-4057-8e31-0796cb481388"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="104" width="100" height="15" uuid="e7bb88fc-ed4a-4c44-8fc3-d06cd3a53569"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{namaBarang}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.##">
+				<reportElement x="100" y="104" width="47" height="15" uuid="424d0eba-3d33-4e3e-a57f-7030c0b4b6e2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{berat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="119" width="169" height="15" uuid="852702ab-b56a-4804-9fd9-1ca2a6832a72"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kategoriServis}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMM yyyy">
+				<reportElement x="69" y="143" width="100" height="15" uuid="a5e92162-b564-4472-8204-d81c5f44d207"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse($F{tglAmbil})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="35" width="56" height="15" uuid="b12132eb-1cb5-46a2-93d2-796b5e177bfd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="56" height="15" uuid="0cee6d04-7cba-49e8-9b38-be233dc4aa03"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="65" width="56" height="15" uuid="5137bc26-8c10-476c-aa02-e9a2909637d3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Sales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="35" width="13" height="15" uuid="a3677fc0-6b15-42d6-b410-c3f8fd1f0883"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="50" width="13" height="15" uuid="3712a0f0-81f9-40c3-8f1d-e38176be4af1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="65" width="13" height="15" uuid="7c0f16b1-130a-42a9-812a-bea225104d23"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="143" width="56" height="15" uuid="c8a69ea8-d75c-46b5-903b-2615550c65bc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tgl Ambil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="143" width="13" height="15" uuid="faba6cca-0a7f-4561-9da7-8bbbad8bb548"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="85" width="169" height="1" uuid="730bef84-707a-41d2-8a90-7029d1fdbd99"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="20" width="56" height="15" uuid="639047fe-da53-4998-a3fd-40480a85249b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tgl Servis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="20" width="13" height="15" uuid="8d25561c-f85e-4373-afea-dae388efae5a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="104" width="12" height="15" uuid="5a79d864-c2dd-4125-9052-a2d1872f1901"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Gr]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="101" width="169" height="1" uuid="bcaae445-fa92-4cb7-94c5-803060f90223"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="86" width="100" height="15" uuid="4d63843b-9e0a-45b8-92ed-515247e476f0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="85" width="69" height="15" uuid="7fdb04d7-979e-42b8-84f0-235e2db088a0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Berat]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="69" y="65" width="100" height="15" uuid="60c1d457-f078-423f-91c2-2d2a5d40296c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kodeSales}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="1" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="169" height="1" uuid="1f2ba9af-9117-4b2b-86db-76b3c7fc7a2b"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,106 @@
+2019/05/06
+- autoupdate
+- fix tutup toko
+- import database lama -> user : patch, pass : jagopusat
+- dashboard -> tambah periode this day
+- shortcut keyboard (F1,F2,F3,F4,F5)
+- show/hide quick menu
+- laporan total penjualan cabang (program jago pusat lama)
+2019/05/27
+- Focus cursor penjualan setelah input barang -> tombol checkout
+- Error batal lunas beda tanggal lunas
+- Focus cursor pelunasan hutang setelah bunga persen baru -> tombol save
+- Refresh keuangan setelah pembatalan transaksi kas, terima uang bank, batal terima uang bank, setor uang kas & batal setor uang kas
+- Dashboard -> This day store performance by jam
+            -> Best selling items per kategori
+            -> Sales performance (hapus)
+	    -> Permintaan barang
+- Datepicker CSS
+- Check Connection Pusat set to background process
+- User otoritas & verifikasi
+2019/06/01
+- Fix error batal hutang (status batal & status lunas)
+- Fix error batal pembelian (list detail pembelian)
+- Fix error stok hutang
+- cari hutang -> pelunasan hutang, setelah disimpan kembali ke cari hutang
+- Hapus loading screen saat check tgl system
+- Check tgl System, setelah tutup toko
+2019/06/02
+- Laporan
+- Print Out -> Cetak Barcode
+            -> Surat Penjualan 
+            -> Surat Kurang Bayar 
+            -> Slip Pembayaran Poin 
+            -> Surat Penjualan Cabang 
+            -> Surat Pemesanan 
+            -> Surat Pembelian ( optional ) 
+            -> Surat Hutang + Riwayat Hutang
+            -> Surat Servis 
+            -> Surat Setoran 
+            -> Ambil Barang
+            -> Bukti Pelunasan Hutang ( optional )  -> cuma di print manual
+	    -> Keuangan Harian + Get Poin 
+	    -> History Member 
+2019/06/03
+- Laporan add select jika tanggal periode
+- Laporan first page / last page
+- koneksi pusat timeout to 1 sec
+- laporan transaksi sales -> transaksi lain-lain
+2019/08/08
+- Print out surat servis tgl ambil tidak berubah kalau input servis dari quick menu
+- Duplicate no keuangan - tambah column no urut d table keuangan sebagai primary key
+- Batal Penjualan beda tanggal - verifikasi batal penjualan beda tanggal
+- Revisi transaksi - otoritas revisi transaksi kas
+- Login default toko di setting koneksi file, ganti cabang setelah login masuk dengan otoritas user
+- Ganti Cabang - otoritas ganti cabang
+- patch database -> user : patch, pass : jagopusat
+2019/08/16
+- ver 2.0.9
+- data ambil balenan cm cabang sendiri saja
+- berat cicil hutang
+- laporan stok hutang periode - import stok hutang dr database lama ke baru
+2019/11/26
+- orang bayar masuk ke sales orang kurang - fix
+- ongkos tidak tercetak di surat - fix
+2019/12/10
+- kursor di kode sales
+- verifikasi double - beda komputer
+- pemesanan - barang ikut harga beli - fix
+- laporan penjualan antar cabang grand total salah - fix
+2020/05/26
+- ver 2.0.10
+- auto update switch to google server
+- nilai pokok pembelian antar cabang - fix
+
+
+database
+- fix nilai barang
+- pembulatan pembelian head
+- pembulatan penjualan head
+- pembulatan stok hutang
+
+-PATCH NILAI POKOK
+-tm_barang : berat_persen, nilai_pokok - pembulatan 2 angka
+
+PLAN UPDATE
+- Laporan Ambil Barang, Laporan hancur barang
+- cek tgl system, cuma jika saat akan melakukan transaksi
+- report message
+- transaksi sales clickable -> detail + poin + setor uang kas + terima uang bank + pembelian cabang + penjualan cabang
+- encrypt password user	
+
+- Log member -> detail penjualan/servis dari cabang lain
+- transfer uang Kasir -> RR langsung --> tanya dulu
+- SP barang cabang (PS)
+- Fungsi Ambil Hutang Lama --> tanya dulu
+- Laporan Barang Hampir habis
+- Laporan Barang tidak laku
+- Laporan Barang paling laku
+- Laporan Barang paling jarang dibaleni
+- Laporan Barang paling banyak dibaleni
+- Laporan Penjualan barang dibawah harga minimum
+- Laporan Pembelian barang diatas harga maksimal
+- Laporan Pelunasan Hutang bunga rp kurang dari bunga komputer
+- Laporan Hutang Lama yang rugi (total bunga melebihi total hutang)
+- laporan barang detail beda tanggal
+- laporan hutang detail beda tanggal

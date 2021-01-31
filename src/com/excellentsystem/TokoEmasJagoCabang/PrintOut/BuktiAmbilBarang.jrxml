@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BuktiAmbilBarang" language="groovy" pageWidth="209" pageHeight="842" columnWidth="169" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="5b10bbcd-ad86-4721-8dbf-10aaaf358142">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="beratKotor" class="java.lang.Double">
+		<fieldDescription><![CDATA[beratKotor]]></fieldDescription>
+	</field>
+	<field name="tglPembelian" class="java.lang.String">
+		<fieldDescription><![CDATA[tglPembelian]]></fieldDescription>
+	</field>
+	<field name="hargaBeli" class="java.lang.Double">
+		<fieldDescription><![CDATA[hargaBeli]]></fieldDescription>
+	</field>
+	<field name="noAmbilBarang" class="java.lang.String">
+		<fieldDescription><![CDATA[noAmbilBarang]]></fieldDescription>
+	</field>
+	<field name="kodeCabang" class="java.lang.String">
+		<fieldDescription><![CDATA[ambilBarangHead.kodeCabang]]></fieldDescription>
+	</field>
+	<variable name="variable1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{hargaBeli}]]></variableExpression>
+	</variable>
+	<variable name="variable2" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{beratKotor}]]></variableExpression>
+	</variable>
+	<variable name="totalBeratTgl" class="java.lang.Double" resetType="Group" resetGroup="tglBeli" calculation="Sum">
+		<variableExpression><![CDATA[$F{beratKotor}]]></variableExpression>
+	</variable>
+	<variable name="totalHargaTgl" class="java.lang.Double" resetType="Group" resetGroup="tglBeli" calculation="Sum">
+		<variableExpression><![CDATA[$F{hargaBeli}]]></variableExpression>
+	</variable>
+	<group name="tglBeli">
+		<groupExpression><![CDATA[$F{tglPembelian}.substring( 0, 10 )]]></groupExpression>
+		<groupFooter>
+			<band height="15">
+				<textField>
+					<reportElement x="0" y="0" width="60" height="15" uuid="d3aae4e4-8bea-4702-ba49-4e0215f6d437"/>
+					<textElement>
+						<font fontName="Serif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tglPembelian}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.##">
+					<reportElement x="60" y="0" width="40" height="15" uuid="63ce9bbf-141b-4b19-9ed0-6047d0fa27b9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Serif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalBeratTgl}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0">
+					<reportElement x="100" y="0" width="69" height="15" uuid="db1ce88e-25b3-40c5-a0dd-d3b1e6870299"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Serif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalHargaTgl}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="169" height="16" uuid="25ba7788-b478-4106-adef-b14d15e63811"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Ambil Barang Pembelian]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="0" width="169" height="22" uuid="4b246f57-77a9-4c2c-8d0d-3759e5282322"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="16" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kodeCabang}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="169" height="15" uuid="f2478d32-90ec-4d05-960a-97bfe78377d2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="10" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noAmbilBarang}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="17" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="60" height="15" uuid="fe3d836a-d332-4b87-bbe4-34a157e197dd"/>
+				<textElement>
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tgl Beli]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1" width="69" height="15" uuid="0cfa824a-85ed-4494-abaa-a270f52a2d59"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total Beli]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="169" height="1" uuid="0906ca61-69e3-4732-bc8e-d4aabf64ff8e"/>
+			</line>
+			<line>
+				<reportElement x="0" y="16" width="169" height="1" uuid="b005c6d0-c725-4229-af06-10866b59538a"/>
+			</line>
+			<staticText>
+				<reportElement x="60" y="1" width="40" height="15" uuid="c0959466-2ace-4e7e-9de9-f87bd0ee358d"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Berat]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="15" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="169" height="1" uuid="e5ad054a-262f-4a19-9bb9-8aea9d2be9e7"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="60" height="15" uuid="9773cf88-cf86-456e-99b1-2085b6c9164e"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total  : ]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="100" y="0" width="69" height="15" uuid="d2888859-7180-4682-98b1-c1a5e3fec5e9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{variable1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.##">
+				<reportElement x="60" y="0" width="40" height="15" uuid="8efde26d-6c5a-4669-b9a4-33395cfe6210"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{variable2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

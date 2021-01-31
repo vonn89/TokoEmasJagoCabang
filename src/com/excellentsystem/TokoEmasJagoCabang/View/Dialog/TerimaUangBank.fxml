@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" prefHeight="360.0" prefWidth="400.0" styleClass="dialog" stylesheets="@../../Resource/MyTheme.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excellentsystem.TokoEmasJagoCabang.View.Dialog.TerimaUangBankController">
+   <children>
+      <GridPane hgap="5.0" layoutX="93.0" layoutY="98.0" vgap="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <padding>
+            <Insets left="15.0" right="15.0" top="15.0" />
+         </padding>
+         <children>
+            <Button mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="30.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Resource/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label styleClass="label-header" text="Terima Uang Bank" GridPane.columnSpan="2147483647" />
+            <Label text="No Transaksi" GridPane.rowIndex="2" />
+            <Label text="Tgl Transaksi" GridPane.rowIndex="3" />
+            <Label text="Kode Cabang" GridPane.rowIndex="5" />
+            <Label text="Jumlah Rp" GridPane.rowIndex="7" />
+            <Label text="Tipe Kasir" GridPane.rowIndex="6" />
+            <Label text="Kode User" GridPane.rowIndex="4" />
+            <TextField fx:id="noTambahField" prefHeight="30.0" styleClass="search-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tglTambahField" disable="true" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="kodeCabangField" disable="true" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="tipeKasirField" disable="true" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="jumlahRpField" disable="true" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="userTambahField" disable="true" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <GridPane fx:id="gridPane" hgap="5.0" layoutX="14.0" layoutY="265.0" vgap="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="270.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+         <children>
+            <TextField fx:id="tglTerimaField" disable="true" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="userTerimaField" disable="true" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Tgl Terima" GridPane.rowIndex="1" />
+            <Label text="User Terima" GridPane.rowIndex="2" />
+            <Separator prefWidth="200.0" GridPane.columnSpan="2147483647" />
+         </children>
+      </GridPane>
+      <HBox alignment="CENTER_RIGHT" layoutX="-85.0" layoutY="341.0" prefHeight="30.0" prefWidth="200.0" spacing="1.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+         <children>
+            <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Save" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="100.0" text="Cancel" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

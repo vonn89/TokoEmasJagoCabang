@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" onMouseClicked="#closeWarning" prefHeight="100.0" prefWidth="450.0" style="-fx-background-color: transparent;" styleClass="dialog" stylesheets="@../../Resource/MyTheme.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.excellentsystem.TokoEmasJagoCabang.View.Dialog.WarningController">
+   <children>
+      <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: seccolor3;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="title" alignment="CENTER" style="-fx-text-fill: red; -fx-font-weight: bold;" styleClass="label-header" text="Warning !!" />
+                  <Label fx:id="content" alignment="CENTER" style="-fx-font-size: 18; -fx-text-fill: white; -fx-font-weight: bold;" text="Tanggal sistem dan tanggal komputer berbeda" />
+               </children>
+            </VBox>
+         </children>
+         <effect>
+            <DropShadow color="#0000006c" />
+         </effect>
+      </StackPane>
+   </children>
+</AnchorPane>

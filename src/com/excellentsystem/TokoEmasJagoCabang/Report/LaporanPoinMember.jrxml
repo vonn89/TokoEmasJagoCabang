@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="209" pageHeight="1441" columnWidth="169" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="30c853f9-a99c-43b5-a7cb-e875adaa2591">
+	<property name="ireport.zoom" value="2.5937424601000028"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nilaiPoin" class="java.lang.Double" isForPrompting="false">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="kodeToko" class="java.lang.String"/>
+	<parameter name="tanggal" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="jumlahPoin" class="java.lang.Integer">
+		<fieldDescription><![CDATA[jumlahPoin]]></fieldDescription>
+	</field>
+	<field name="jumlahRp" class="java.lang.Double">
+		<fieldDescription><![CDATA[jumlahRp]]></fieldDescription>
+	</field>
+	<field name="kategori" class="java.lang.String">
+		<fieldDescription><![CDATA[kategori]]></fieldDescription>
+	</field>
+	<field name="keterangan" class="java.lang.String">
+		<fieldDescription><![CDATA[keterangan]]></fieldDescription>
+	</field>
+	<field name="kodeMember" class="java.lang.String">
+		<fieldDescription><![CDATA[kodeMember]]></fieldDescription>
+	</field>
+	<field name="kodeSales" class="java.lang.String">
+		<fieldDescription><![CDATA[kodeSales]]></fieldDescription>
+	</field>
+	<variable name="sumPoin" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{jumlahPoin}]]></variableExpression>
+	</variable>
+	<group name="kategori">
+		<groupExpression><![CDATA[$F{kategori}]]></groupExpression>
+		<groupHeader>
+			<band height="15">
+				<textField>
+					<reportElement x="0" y="0" width="169" height="15" uuid="bf29e472-309e-4c3b-b2d9-42375b7a80fe"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{kategori}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="37">
+			<textField>
+				<reportElement x="0" y="21" width="100" height="16" uuid="29cb4fe1-f048-45df-9d07-f722117fefa5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Poin - "+$P{kodeToko}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="22" width="100" height="15" uuid="1fdb631f-8ec9-498f-a436-c817bfc4f082"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tanggal}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-20" y="0" width="209" height="1" uuid="f9e4156b-5a83-448c-a289-942aba12f8c4"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="36" width="169" height="1" uuid="012e8532-80b5-4056-8517-b7dbc7450c6d"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="169" height="15" uuid="125addd5-99c9-40c9-9176-d7ff62f3d3a0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{keterangan}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="119" y="15" width="50" height="15" uuid="14ba7f91-11a5-42bb-9538-c31fd12d9adb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlahPoin}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="10" y="15" width="109" height="15" uuid="2d889e79-ee4c-4220-a9fc-7bae37e3ac16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlahRp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="30" splitType="Stretch">
+			<textField pattern="#,##0">
+				<reportElement x="119" y="0" width="50" height="15" uuid="6858d5d9-998a-47aa-aa9d-d390f622ba86"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sumPoin}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="119" height="15" uuid="bc398bc1-03ac-42d4-a4f9-b5dccfa702c2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Total Poin Dikeluarkan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="119" height="15" uuid="2085c445-3844-4e5e-a33b-0ae9eef7eb36"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Total Rp]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="119" y="15" width="50" height="15" uuid="40dad636-bf86-4da6-9656-cda2bd3e9064"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sumPoin}*$P{nilaiPoin}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="169" height="1" uuid="88f1e48a-6713-4ba2-917f-40a73669452c"/>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>

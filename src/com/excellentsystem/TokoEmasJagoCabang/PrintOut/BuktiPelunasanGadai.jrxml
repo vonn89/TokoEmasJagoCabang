@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="209" pageHeight="842" columnWidth="169" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" isFloatColumnFooter="true" isIgnorePagination="true" uuid="354157d4-8272-4629-8c00-1d2b2861a310">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="berat" class="java.lang.Double">
+		<fieldDescription><![CDATA[berat]]></fieldDescription>
+	</field>
+	<field name="kodeKategori" class="java.lang.String">
+		<fieldDescription><![CDATA[kodeKategori]]></fieldDescription>
+	</field>
+	<field name="namaBarang" class="java.lang.String">
+		<fieldDescription><![CDATA[namaBarang]]></fieldDescription>
+	</field>
+	<field name="noHutang" class="java.lang.String">
+		<fieldDescription><![CDATA[noHutang]]></fieldDescription>
+	</field>
+	<field name="bungaRp" class="java.lang.Double">
+		<fieldDescription><![CDATA[hutangHead.bungaRp]]></fieldDescription>
+	</field>
+	<field name="lamaPinjam" class="java.lang.Integer">
+		<fieldDescription><![CDATA[hutangHead.lamaPinjam]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[hutangHead.nama]]></fieldDescription>
+	</field>
+	<field name="salesLunas" class="java.lang.String">
+		<fieldDescription><![CDATA[hutangHead.salesLunas]]></fieldDescription>
+	</field>
+	<field name="tglLunas" class="java.lang.String">
+		<fieldDescription><![CDATA[hutangHead.tglLunas]]></fieldDescription>
+	</field>
+	<field name="tglHutang" class="java.lang.String">
+		<fieldDescription><![CDATA[hutangHead.tglHutang]]></fieldDescription>
+	</field>
+	<field name="totalHutang" class="java.lang.Double">
+		<fieldDescription><![CDATA[hutangHead.totalHutang]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="17" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="169" height="17" uuid="cafe159e-5181-4334-9d76-9d22f5420363"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Bukti Pelunasan Hutang]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="16" width="169" height="1" uuid="634b6924-a04b-44c2-8890-a7c6d541463b"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="75" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="169" height="14" uuid="d9d04403-4bb7-4a69-8476-e5f72b2a1894"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noHutang}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMM yyyy HH:mm">
+				<reportElement x="56" y="14" width="113" height="15" uuid="97c54343-cf66-4eb1-8f74-db7138d57c63"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse($F{tglHutang})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="14" width="46" height="15" uuid="b2958b49-d1a3-4cd2-8ce2-758ef4efb7c0"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Tgl hutang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="14" width="10" height="15" uuid="8122c75e-391d-44a9-89e2-fa1238c4a50a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField pattern="dd MMM yyyy HH:mm">
+				<reportElement x="56" y="29" width="113" height="15" uuid="5284da89-a2fc-4260-8faa-fa63d4fe8a52"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse($F{tglLunas})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="46" y="29" width="10" height="15" uuid="a1498103-e97c-44c3-96f8-4ebc6f223e73"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="29" width="46" height="15" uuid="968b1f3a-b339-43eb-a98e-44ef9fc21d88"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Tgl lunas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="56" y="44" width="113" height="15" uuid="26debfbd-9e93-4f8b-a71e-4394db202ede"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="44" width="46" height="15" uuid="8a40623f-551a-464d-909a-de0f0b9ae7f2"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="44" width="10" height="15" uuid="df1aa515-7895-40dd-9497-9b54fb5c4bc7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="74" width="169" height="1" uuid="a86cc33e-ec45-459f-b4b2-b36a10dda71a"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="46" y="59" width="10" height="15" uuid="ebdaafb8-ed2e-4c5c-800b-2ed08cf8450b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="59" width="46" height="15" uuid="07211fac-cd7c-49a2-b865-e7731c2e9514"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Sales]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="56" y="59" width="113" height="15" uuid="9294afd5-f8c3-4389-af31-4bd5455dcad5"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{salesLunas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField pattern="#,##0.##">
+				<reportElement x="110" y="16" width="59" height="15" uuid="39cf5ed9-e24b-42a4-a505-6786f6f015a2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{berat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="16" width="110" height="15" uuid="7b77f2fd-fe9b-4814-a263-5c1a701c4973"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kodeKategori}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="1" width="169" height="15" uuid="c027972d-1bce-4a5b-8fa5-2830b151f7cc"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{namaBarang}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="99" y="1" width="10" height="15" uuid="839a18c9-8fdb-4f19-80f8-fb7d841eb102"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="109" y="1" width="60" height="15" uuid="cb5a1eec-cc2f-4c02-9b45-d25b5f02fbb9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalHutang}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="169" height="1" uuid="e707b337-6786-44e5-8f17-06b4881dee7d"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="1" width="99" height="15" uuid="ae3e6864-06a1-4714-8b77-9dbe272e9343"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Total hutang]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="109" y="31" width="60" height="15" uuid="2e3a6f06-9cd7-4e43-8996-5977aa65c319"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bungaRp}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="109" y="16" width="60" height="15" uuid="ba5b76ac-0d53-4085-b8ce-440858fb603b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lamaPinjam}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="16" width="99" height="15" uuid="d9db9f10-3c11-49a5-9c13-d122a54689c1"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Lama pinjam ( hari )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="16" width="10" height="15" uuid="fa55704d-c4c0-4652-b282-1b767a6e4ddf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="31" width="99" height="15" uuid="1c4d6d2b-42de-4371-9c07-eaad2a2465b0"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Total bunga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="31" width="10" height="15" uuid="466cc45a-dbdd-489f-ac82-712a6211639b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="46" width="99" height="15" uuid="f78594f1-abc9-41d4-b15b-52793f111a3d"/>
+				<textElement>
+					<font fontName="Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[Grandtotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="46" width="10" height="15" uuid="0da5fd93-7283-44fb-902a-ea9757cb2639"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="109" y="46" width="60" height="15" uuid="aabe9b97-1dbe-4697-a727-8abe0e6ed614"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bungaRp}+$F{totalHutang}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>
